@@ -90,20 +90,20 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  enterPasswordLength = prompt ("Hi, the length of the password needs to be between 10 and 64 characters \nEnter a password length between 10 and 64");
-if (enterPasswordLength > 9 && enterPasswordLength < 65) {
-    return enterPasswordLength;
+  passwordLength = prompt ("Hi, the length of the password needs to be between 10 and 64 characters \nEnter a password length between 10 and 64");
+if (passwordLength > 9 && passwordLength < 65) {
+    return passwordLength;
     // alert("Thank you, that's in the right range");
   }
-  if (enterPasswordLength < 10) {
+  if (passwordLength < 10) {
     alert ("Too low Chicken Marengo, please try again");
     getPasswordOptions();
   }  
-  else if (enterPasswordLength > 64) {
+  else if (passwordLength > 64) {
     alert ("Too high wise guy, please try again");
     getPasswordOptions();
   }
-  else if (enterPasswordLength != numericCharacters) {
+  else if (passwordLength != numericCharacters) {
     alert ("That's a fine character Jim but 'tis no number"); 
     getPasswordOptions();
   }
@@ -128,7 +128,7 @@ function getPasswordCase() {
       alert("Sorry, you've entered an incorrect value");
       getPasswordCase();
     } 
-    return passwordCase;
+    // return passwordCase;
   }
 
   function getPasswordNumericChar() {
@@ -143,7 +143,7 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordNumericChar();
     }
-    return passwordNumericChar;
+    // return passwordNumericChar;
   }
 
   function getPasswordSpecChar() {
@@ -158,7 +158,7 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordSpecChar();
     }
-    return passwordSpecChar;
+    // return passwordSpecChar;
   }
 
 getPasswordOptions(); //runs the function! Whoop! To call a function simply use it's name with and pass it any required parameters in (); 
@@ -202,17 +202,25 @@ if (passwordSpecChar === "yes") {
 
  console.log(selectedPasswordCharacters); 
 
+ 
 }
 
 getRandom();
 
+
 // Function to generate password with user input
 function generatePassword() {
- 
-// itterate over the selected characters passwords array 'password lenght' number of times
+  
+  for (var i = 0; i < passwordLength; i++);
+  console.log(selectedPasswordCharacters[i]);
+
+
+// itterate over the selected characters passwords array 'password length' number of times
 // scramble the final order. 
 
 }
+
+generatePassword(); // calls the function
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
