@@ -106,7 +106,11 @@ if (enterPasswordLength > 10 && enterPasswordLength < 65) {
     alert ("That's a fine character Jim but 'tis no number"); 
     getPasswordOptions();
   }
+
+  // return enterPasswordLength;
+
 }
+
 
 function getPasswordCase() {
   passwordCase = prompt ("Would you like your password to contain lower or upper case letters? \n please enter 'lower', 'upper' or 'both'");
@@ -160,12 +164,29 @@ getPasswordSpecChar();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  
+  
+  var randomUpperCase = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
+  console.log(randomUpperCase);
+  var randomLowerCase = lowerCasedCharacters [Math.floor(Math.random() * lowerCasedCharacters.length)];
+  console.log(randomLowerCase);
+  var randomSpecialCharacters = specialCharacters [Math.floor(Math.random() * specialCharacters.length)];
+  console.log(randomSpecialCharacters);
+  var randomNumericCharacters = numericCharacters [Math.floor(Math.random() * numericCharacters.length)];
+  console.log(randomNumericCharacters)
+
+
 
 }
 
+getRandom();
+
+
 // Function to generate password with user input
 function generatePassword() {
-
+ //select a random array and draw a character based on initial selections.  
+ //take all options selected, merge arrays and then 
+ //repeat this 'password lenght' number of times
 }
 
 // Get references to the #generate element
@@ -181,6 +202,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+//
+
 
 // References and notes: 
 // https://pietschsoft.com/post/2019/07/24/call-functions-in-javascript#:~:text=How%20to%20call%20a%20function,delimited%20list%20enclosed%20in%20parenthesis.
