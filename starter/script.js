@@ -91,10 +91,11 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   enterPasswordLength = prompt ("Hi, the length of the password needs to be between 10 and 64 characters \nEnter a password length between 10 and 64");
-if (enterPasswordLength > 10 && enterPasswordLength < 65) {
-    alert("Thank you, that's in the right range");
+if (enterPasswordLength > 9 && enterPasswordLength < 65) {
+    return enterPasswordLength;
+    // alert("Thank you, that's in the right range");
   }
-  else if (enterPasswordLength < 10) {
+  if (enterPasswordLength < 10) {
     alert ("Too low Chicken Marengo, please try again");
     getPasswordOptions();
   }  
@@ -127,6 +128,7 @@ function getPasswordCase() {
       alert("Sorry, you've entered an incorrect value");
       getPasswordCase();
     } 
+    return passwordCase;
   }
 
   function getPasswordNumericChar() {
@@ -141,6 +143,7 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordNumericChar();
     }
+    return passwordNumericChar;
   }
 
   function getPasswordSpecChar() {
@@ -155,6 +158,7 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordSpecChar();
     }
+    return passwordSpecChar;
   }
 
 getPasswordOptions(); //runs the function! Whoop! To call a function simply use it's name with and pass it any required parameters in (); 
@@ -164,29 +168,50 @@ getPasswordSpecChar();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  
-  
+   
   var randomUpperCase = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
-  console.log(randomUpperCase);
+  // console.log(randomUpperCase);
   var randomLowerCase = lowerCasedCharacters [Math.floor(Math.random() * lowerCasedCharacters.length)];
-  console.log(randomLowerCase);
+  // console.log(randomLowerCase);
   var randomSpecialCharacters = specialCharacters [Math.floor(Math.random() * specialCharacters.length)];
-  console.log(randomSpecialCharacters);
+  // console.log(randomSpecialCharacters);
   var randomNumericCharacters = numericCharacters [Math.floor(Math.random() * numericCharacters.length)];
-  console.log(randomNumericCharacters)
+  // console.log(randomNumericCharacters)
 
+const selectedPasswordCharacters = [];
+// creates an array out of randomly selected characters from chosen character lists
+//(e.g. lowercase and numbers arrays)
 
+if (passwordCase === "lower") {
+  selectedPasswordCharacters.push(randomLowerCase);
+}
+ else if (passwordCase === "upper") {
+  selectedPasswordCharacters.push(randomUpperCase);
+ }
+ else if (passwordCase === "both") {
+  selectedPasswordCharacters.push(randomLowerCase, randomUpperCase); 
+ }
+ 
+if (passwordNumericChar === "yes") {
+  selectedPasswordCharacters.push(randomNumericCharacters);
+ }
+
+if (passwordSpecChar === "yes") {
+  selectedPasswordCharacters.push(randomSpecialCharacters);
+ }
+
+ console.log(selectedPasswordCharacters); 
 
 }
 
 getRandom();
 
-
 // Function to generate password with user input
 function generatePassword() {
- //select a random array and draw a character based on initial selections.  
- //take all options selected, merge arrays and then 
- //repeat this 'password lenght' number of times
+ 
+// itterate over the selected characters passwords array 'password lenght' number of times
+// scramble the final order. 
+
 }
 
 // Get references to the #generate element
