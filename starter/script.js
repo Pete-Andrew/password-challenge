@@ -108,10 +108,8 @@ if (passwordLength > 9 && passwordLength < 65) {
     getPasswordOptions();
   }
 
-  // return enterPasswordLength;
-
+  // return passwordLength;
 }
-
 
 function getPasswordCase() {
   passwordCase = prompt ("Would you like your password to contain lower or upper case letters? \n please enter 'lower', 'upper' or 'both'");
@@ -128,11 +126,12 @@ function getPasswordCase() {
       alert("Sorry, you've entered an incorrect value");
       getPasswordCase();
     } 
+    
     // return passwordCase;
   }
 
   function getPasswordNumericChar() {
-  passwordNumericChar = prompt ("Would you like your password to contain numeric characters (1-9)? \n please enter 'yes' or 'no'");
+    passwordNumericChar = prompt ("Would you like your password to contain numeric characters (1-9)? \n please enter 'yes' or 'no'");
     if (passwordNumericChar === "yes") {
       alert("Thanks, your password will contain numerical characters")
     }
@@ -143,11 +142,12 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordNumericChar();
     }
+    
     // return passwordNumericChar;
   }
 
   function getPasswordSpecChar() {
-  passwordSpecChar = prompt ("Would you like your password to contain Special characters e.g. $@%&*, etc? \n please enter 'yes' or 'no'");
+    passwordSpecChar = prompt ("Would you like your password to contain Special characters e.g. $@%&*, etc? \n please enter 'yes' or 'no'");
     if (passwordSpecChar === "yes") {
       alert("Thanks, your password will contain special characters")
     }
@@ -158,11 +158,12 @@ function getPasswordCase() {
       alert("yes or no not entered, try having a think and trying again")
       getPasswordSpecChar();
     }
+    
     // return passwordSpecChar;
   }
 
 getPasswordOptions(); //runs the function! Whoop! To call a function simply use it's name with and pass it any required parameters in (); 
-getPasswordCase ();
+getPasswordCase();
 getPasswordNumericChar();
 getPasswordSpecChar();
 
@@ -178,7 +179,8 @@ function getRandom(arr) {
   var randomNumericCharacters = numericCharacters [Math.floor(Math.random() * numericCharacters.length)];
   // console.log(randomNumericCharacters)
 
-const selectedPasswordCharacters = [];
+
+var selectedPasswordCharacters = [];
 // creates an array out of randomly selected characters from chosen character lists
 //(e.g. lowercase and numbers arrays)
 
@@ -195,29 +197,39 @@ if (passwordCase === "lower") {
 if (passwordNumericChar === "yes") {
   selectedPasswordCharacters.push(randomNumericCharacters);
  }
+ else if (passwordNumericChar === "no") {
+//  console.log("no numeric chars added");
+ }
 
 if (passwordSpecChar === "yes") {
   selectedPasswordCharacters.push(randomSpecialCharacters);
- }
+}
+else if (passwordSpecChar === "no") {
+// console.log("no special chars added");
+}  
 
  console.log(selectedPasswordCharacters); 
-
- 
 }
 
-getRandom();
-
+// getRandom();
 
 // Function to generate password with user input
 function generatePassword() {
+
+  var finalPassword = [];
   
-  for (var i = 0; i < passwordLength; i++);
-  console.log(selectedPasswordCharacters[i]);
+  for (var i = 0; i < passwordLength; i++) {
+  finalPassword.push(getRandom()); 
+  
+  console.log(finalPassword);
+   // make an array out of this result
+   // slice the array at passwordlenght input (e.g. between 10-65)
+   //  finalPassword.slice(0, passwordLenght.length);
+   // scramble the final order. 
+}
 
-
-// itterate over the selected characters passwords array 'password length' number of times
-// scramble the final order. 
-
+// return a value;
+// return finalPassword;
 }
 
 generatePassword(); // calls the function
@@ -235,9 +247,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-//
-
 
 // References and notes: 
 // https://pietschsoft.com/post/2019/07/24/call-functions-in-javascript#:~:text=How%20to%20call%20a%20function,delimited%20list%20enclosed%20in%20parenthesis.
