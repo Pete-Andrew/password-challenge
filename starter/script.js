@@ -168,8 +168,9 @@ getPasswordNumericChar();
 getPasswordSpecChar();
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-   
+
+function getRandom() {
+    
   var randomUpperCase = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
   // console.log(randomUpperCase);
   var randomLowerCase = lowerCasedCharacters [Math.floor(Math.random() * lowerCasedCharacters.length)];
@@ -185,9 +186,10 @@ var selectedPasswordCharacters = [];
 //(e.g. lowercase and numbers arrays)
 
 if (passwordCase === "lower") {
-  selectedPasswordCharacters.push(randomLowerCase);
+    selectedPasswordCharacters.push(randomLowerCase);
 }
- else if (passwordCase === "upper") {
+ 
+else if (passwordCase === "upper") {
   selectedPasswordCharacters.push(randomUpperCase);
  }
  else if (passwordCase === "both") {
@@ -198,39 +200,40 @@ if (passwordNumericChar === "yes") {
   selectedPasswordCharacters.push(randomNumericCharacters);
  }
  else if (passwordNumericChar === "no") {
-//  console.log("no numeric chars added");
+
  }
 
 if (passwordSpecChar === "yes") {
   selectedPasswordCharacters.push(randomSpecialCharacters);
 }
 else if (passwordSpecChar === "no") {
-// console.log("no special chars added");
+
 }  
 
- console.log(selectedPasswordCharacters); 
+console.log(selectedPasswordCharacters); 
 }
 
-// getRandom();
+getRandom();
 
 // Function to generate password with user input
 function generatePassword() {
+  // var finalPassword = [];
 
-  var finalPassword = [];
-  
   for (var i = 0; i < passwordLength; i++) {
-  finalPassword.push(getRandom()); 
-  
-  console.log(finalPassword);
-   // make an array out of this result
+    getRandom();
+
+    // finalPassword.push(getRandom());
+    // console.log(finalPassword);  - makes an array of the correct length but all members are Undefined
+  }
+}
+  // make an array out of this result
    // slice the array at passwordlenght input (e.g. between 10-65)
    //  finalPassword.slice(0, passwordLenght.length);
    // scramble the final order. 
-}
 
 // return a value;
 // return finalPassword;
-}
+
 
 generatePassword(); // calls the function
 
@@ -249,4 +252,4 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 // References and notes: 
-// https://pietschsoft.com/post/2019/07/24/call-functions-in-javascript#:~:text=How%20to%20call%20a%20function,delimited%20list%20enclosed%20in%20parenthesis.
+// https://pietschsoft.com/post/2019/07/24/call-functions-in-javascript#:~:text=How%20to%20call%20a%20function,delimited%20list%20enclosed%20in%20parenthesis
