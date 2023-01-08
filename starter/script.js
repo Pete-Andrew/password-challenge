@@ -170,7 +170,7 @@ getPasswordSpecChar();
 // Function for getting a random element from an array
 
 function getRandom() {
-    
+
   var randomUpperCase = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
   // console.log(randomUpperCase);
   var randomLowerCase = lowerCasedCharacters [Math.floor(Math.random() * lowerCasedCharacters.length)];
@@ -181,9 +181,10 @@ function getRandom() {
   // console.log(randomNumericCharacters)
 
 
-var selectedPasswordCharacters = [];
 // creates an array out of randomly selected characters from chosen character lists
 //(e.g. lowercase and numbers arrays)
+
+var selectedPasswordCharacters = [];
 
 if (passwordCase === "lower") {
     selectedPasswordCharacters.push(randomLowerCase);
@@ -207,35 +208,35 @@ if (passwordSpecChar === "yes") {
   selectedPasswordCharacters.push(randomSpecialCharacters);
 }
 else if (passwordSpecChar === "no") {
-
-}  
-
+  
+}
 console.log(selectedPasswordCharacters); 
+
+return selectedPasswordCharacters; 
+//returns a value for the getRandom function that is then used
+// in the generate password function.  
+
 }
 
-getRandom();
 
 // Function to generate password with user input
 function generatePassword() {
-  // var finalPassword = [];
+  
+  var finalPassword = []; //creates an empty array that has the results of getRandom pushed to it.  
 
   for (var i = 0; i < passwordLength; i++) {
-    getRandom();
-
-    // finalPassword.push(getRandom());
-    // console.log(finalPassword);  - makes an array of the correct length but all members are Undefined
-  }
+    
+    let finalCharacters = getRandom(); // 'let' creates a variable within a function (an alternative to var that is globally accessable).
+    finalPassword.push(finalCharacters[Math.floor(Math.random() * finalCharacters.length)])
+  } 
+    finalPassword = finalPassword.join('') // turns the password into a string without commas between array members.
+    
+      console.log(finalPassword);  
+   
+    return finalPassword; 
 }
-  // make an array out of this result
-   // slice the array at passwordlenght input (e.g. between 10-65)
-   //  finalPassword.slice(0, passwordLenght.length);
-   // scramble the final order. 
 
-// return a value;
-// return finalPassword;
-
-
-generatePassword(); // calls the function
+// generatePassword(); // calls the function
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -251,5 +252,15 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-// References and notes: 
+// References, spare code and notes: 
 // https://pietschsoft.com/post/2019/07/24/call-functions-in-javascript#:~:text=How%20to%20call%20a%20function,delimited%20list%20enclosed%20in%20parenthesis
+
+  // function getMultipleRandom(arr, num) {
+  //   const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  
+  //   return shuffled.slice(0, num);
+  // }
+  
+  // const arr = specialCharacters;
+  // console.log(getMultipleRandom(arr, 32)); 
+  
