@@ -2,8 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 The aim of this project was to create an app that would generate a random
 password based on users given parameters (e.g. password lenght, password case etc..)
 
