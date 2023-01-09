@@ -162,10 +162,16 @@ function getPasswordCase() {
     // return passwordSpecChar;
   }
 
-getPasswordOptions(); //runs the function! Whoop! To call a function simply use it's name with and pass it any required parameters in (); 
+function thanksForEnteringOptions() {
+  alert("Thanks, for entering your options, click generate to create you password");
+}
+
+getPasswordOptions(); 
+//runs the function! Whoop! To call a function simply use it's name with and pass it any required parameters in (); 
 getPasswordCase();
 getPasswordNumericChar();
 getPasswordSpecChar();
+thanksForEnteringOptions();
 
 // Function for getting a random element from an array
 
